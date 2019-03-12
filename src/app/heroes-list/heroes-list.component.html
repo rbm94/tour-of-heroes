@@ -1,0 +1,23 @@
+<ul class="heroes">
+   <li [class.selected]="hero === selectedHero" (click)= "selectHero(hero)" *ngFor="let hero of heroes">
+    <span class="badge">{{ hero.id }}</span>
+    <span class="texte">{{ hero.name }}</span>
+  <!-- <li *ngFor="let hero of heroes">{{ hero.id }} {{ hero.name }} -->
+
+    <!-- <span *ngIf="hero === name">C'est moi chakall</span></li> -->
+</ul>
+
+Nom du Héro
+<input type="text" name="heroToAdd" id="HeroName" [(ngModel)]="heroToAdd">
+<button (click)="addHero()">Ajouter un Héro</button>
+
+<app-hero-details [hero]="selectedHero" *ngIf="selectedHero"></app-hero-details>
+
+<!-- <section *ngIf='selectedHero'> -->
+  <h2>Détails du héro {{ selectedHero.name}}</h2>
+  <div><span>
+    {{selectedHero.id}}
+  </span>
+  {{selectedHero.name}}
+  </div>
+  <!-- </section> -->
