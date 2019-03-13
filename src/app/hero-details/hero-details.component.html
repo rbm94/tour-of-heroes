@@ -1,3 +1,5 @@
 <h2>Détails du Héros {{ hero.name }}</h2>
-<div><span> {{ hero.id }} </span>
-  {{ hero.name }}</div>
+<div>
+  <span> {{ hero.id }} </span> {{ hero.name }}
+</div>
+<a routerLink="edit/{{ hero.id }}">Editer le héros</a>

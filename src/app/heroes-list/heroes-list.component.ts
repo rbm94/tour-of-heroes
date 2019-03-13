@@ -15,11 +15,14 @@ export class HeroesListComponent implements OnInit {
   constructor(private heroesService: HeroesService) {}
 
   ngOnInit() {
-    this.heroes = this.heroesService.getHeroes();
-  }
+  this.heroesService.getHeroes().subscribe(
+    (heroes: Heroo[]) => this.heroes = heroes
+  );
+}
   selectHero(hero: Heroo) {
     this.selectedHero = hero;
-  }
+}
+
   addHero() {
     // const heroName = 'Thor';
     // if(this.heroToAdd === ''){
@@ -28,7 +31,8 @@ export class HeroesListComponent implements OnInit {
     // // this.heroes.push(this.heroToAdd);
     // const hero = { id: 5, name: this.heroToAdd };
     if (this.heroToAdd.trim().length > 0) {
-      this.heroes.push(this.heroesService.createHero(this.heroToAdd));
+     this.heroesService.createHero(this.heroToAdd).subscribe( (hero: Heroo) => this.heroes.push(hero)
+     );
       // this.heroes.push(hero);
       this.heroToAdd = '';
     } else {
